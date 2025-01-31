@@ -4,5 +4,5 @@
 from madcad import *
 part = read("wg_pinion.stl")
 part.mergeclose()
-transformed = difference(part, cylinder(vec3(69,0,65),vec3(69,0,70), 3.2))
+transformed = difference(part, cylinder(vec3(69,0,65),vec3(69,0,70), 4.2))
 write(transformed, 'wg_pinion_hole.stl')
