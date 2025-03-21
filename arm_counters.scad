@@ -1,4 +1,4 @@
-if (1) {
+module arm() {
 difference() {
 union() {
 cube(size=[194,18,12], center=true);
@@ -33,7 +33,7 @@ cylinder(h=10,d=5.4,center=true);
 }
 }
 
-if (0) {
+module bracket1() {
 rotate(90,[1,0,0]) {
 translate([0,-25,0]) {
 cube(size=[33.5,9,4]);
@@ -56,4 +56,95 @@ cube(size=[5,9,3]);
 }
 }
 }
+}
+
+module bracket2() {
+rotate(90,[1,0,0]) {
+translate([13,-25,-3.5]) {
+cube(size=[20,9,5]);
+translate([0,0,-12]) {
+rotate(70,[0,1,0])
+translate([-16,0,-16])
+cube(size=[5,9,22]);
+rotate(70,[0,1,0])
+translate([-16,0,-17])
+cube(size=[12,9,4]);
+}
+}
+translate([31,-25,0.9]) {
+difference() {
+translate([-1,0,-3.7])
+rotate(30,[0,1,0])
+cube(size=[21,9,5]);
+translate([20,-1,-28.3])
+cube(size=[3,20,20]);
+}
+translate([14.5,0,-28.3]) {
+cube(size=[5,9,18.5]);
+translate([-4,0,0])
+cube(size=[8,9,4]);
+}
+}
+}
+}
+
+module pin() {
+translate([0,19,0])
+rotate(90,[0,1,0]) {
+cube(size=[6,12,12]);
+translate([0,0,12])
+cube(size=[6,4.1,12]);
+translate([0,7.9,12])
+cube(size=[6,4.1,12]);
+}
+}
+
+// whole construction
+if (1) {
+arm();
+translate([-119,0,103])
+rotate(-110,[0,1,0])
+mirror([1,0,0])
+arm();
+translate([-193,0,271])
+rotate(-110,[0,1,0])
+mirror([1,0,0])
+mirror([0,0,1])
+arm();
+rotate(-90,[1,0,0])
+mirror([1,0,0])
+translate([136,-168,20])
+rotate(-70,[0,0,1])
+color("red")
+bracket1();
+
+translate([183,0,12])
+mirror([0,0,1])
+arm();
+translate([116,20,18.2])
+rotate(-90,[1,0,0])
+mirror([1,0,0])
+color("red")
+bracket1();
+
+rotate(-90,[1,0,0])
+translate([-63,0,20])
+rotate(70,[0,0,1])
+mirror([1,0,0])
+color("green")
+bracket2();
+color("blue")
+    translate([200,-18,30])
+    rotate(90,[0,1,0])
+    pin();
+    color("blue")
+    translate([208,-18,30])
+    rotate(90,[0,1,0])
+    pin();
+}
+if (0) {
+bracket2();
+}
+if (0) {
+    pin();
 }
