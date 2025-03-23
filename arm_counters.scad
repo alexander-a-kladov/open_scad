@@ -1,3 +1,7 @@
+include<hand_counters.scad>;
+
+
+
 module arm() {
 difference() {
 union() {
@@ -99,8 +103,33 @@ cube(size=[6,4.1,12]);
 }
 }
 
+module screws() {
+translate([-131.6,14,303])
+rotate(90,[1,0,0])
+color("cyan")
+import("M5_x25.stl");
+    
+translate([-80,14,127])
+rotate(90,[1,0,0])
+color("cyan")
+import("M5_x25.stl");
+    
+translate([-6,14,-41])
+rotate(90,[1,0,0])
+color("cyan")
+import("M5_x25.stl");
+    
+translate([177,14,-53])
+rotate(90,[1,0,0])
+color("cyan")
+import("M5_x25.stl");
+}
+
 // whole construction
 if (1) {
+translate([-239,0,420.5])
+rotate(-110,[0,1,0])
+hand_counters();
 arm();
 translate([-119,0,103])
 rotate(-110,[0,1,0])
@@ -141,6 +170,8 @@ color("blue")
     translate([208,-18,30])
     rotate(90,[0,1,0])
     pin();
+
+screws();
 }
 if (0) {
 bracket2();

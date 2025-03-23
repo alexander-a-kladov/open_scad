@@ -1,3 +1,4 @@
+module hand_counters() {
 difference() {
 difference() {
 rotate(90,[0,1,0])
@@ -32,5 +33,6 @@ translate([-70,0,-4]) {
 rotate(90,[1,0,0])
 cylinder(h=19,d=5.3,center=true);
 cube(size=[13,8.2,13],center=true);
+}
 }
 }
