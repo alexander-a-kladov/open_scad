@@ -1,6 +1,11 @@
 include<hand_counters.scad>;
 
-
+whole_v = 1;
+arm_v = 0;
+pin_v = 0;
+bracket1_v = 0;
+bracket2_v = 0;
+handle_v = 0;
 
 module arm() {
 difference() {
@@ -126,7 +131,7 @@ import("M5_x25.stl");
 }
 
 // whole construction
-if (1) {
+if (whole_v) {
 translate([-239,0,420.5])
 rotate(-110,[0,1,0])
 hand_counters();
@@ -173,9 +178,18 @@ color("blue")
 
 screws();
 }
-if (0) {
+if (bracket1_v) {
+    bracket1();
+}
+if (bracket2_v) {
 bracket2();
 }
-if (0) {
+if (pin_v) {
     pin();
+}
+if (arm_v) {
+    arm();
+}
+if (handle_v) {
+    hand_counters();
 }
